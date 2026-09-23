@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Für Mausebär 🐭❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="hearts"></div>
+
+    <main>
+
+        <!-- START -->
+        <section id="start" class="screen active">
+
+            <div class="moon">🌙</div>
+
+            <p class="small">Eine kleine Sache für dich...</p>
+
+            <h1>Hey Mausebär 🐭❤️</h1>
+
+            <p class="intro">
+                Ich wollte dir etwas machen,
+                das nicht einfach nur aus ein paar Worten besteht.
+            </p>
+
+            <button onclick="startPage()">
+                Öffnen ❤️
+            </button>
+
+        </section>
+
+
+        <!-- FRAGE 1 -->
+        <section id="question1" class="screen">
+
+            <p class="number">01 / 04</p>
+
+            <h2>Eine wichtige Frage...</h2>
+
+            <p>
+                Wie würdest du unseren ganzen kleinen Chaos-Film nennen?
+            </p>
+
+            <div class="answers">
+
+                <button onclick="answer('ghost')">
+                    Ghostboy & Mausebär 👻🐭
+                </button>
+
+                <button onclick="answer('chaos')">
+                    Einfach nur Chaos ❤️
+                </button>
+
+                <button onclick="answer('night')">
+                    Irgendwas mit zu vielen Nachtgesprächen 🌙
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FRAGE 2 -->
+        <section id="question2" class="screen">
+
+            <p class="number">02 / 04</p>
+
+            <h2>Was bleibt?</h2>
+
+            <p>
+                Was ist wahrscheinlich eine Sache,
+                die ich von unseren Gesprächen niemals vergessen werde?
+            </p>
+
+            <div class="answers">
+
+                <button onclick="nextQuestion()">
+                    Unsere Telefonate 📞
+                </
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top, #321b46 0%, #140d1c 45%, #08070b 100%);
+
+    color: white;
+
+    overflow: hidden;
+}
+
+main {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+.screen {
+    display: none;
+
+    width: 100%;
+    max-width: 430px;
+
+    text-align: center;
+
+    animation: fadeIn 0.7s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+.moon {
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.small {
+    color: #c9a8d9;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 42px;
+    margin: 10px 0 20px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.intro {
+    color: #d8cbdc;
+    line-height: 1.7;
+}
+
+.number {
+    color: #c67cff;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+button {
+    width: 100%;
+
+    border: none;
+    border-radius: 18px;
+
+    padding: 16px 20px;
+
+    margin-top: 14px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 16px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.03);
+
+    background: rgba(198,124,255,0.25);
+}
+
+.answers {
+    margin-top: 25px;
+}
+
+.letter {
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 25px;
+
+    padding: 28px 22px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(10px);
+
+    line-height: 1.7;
+}
+
+.letter-icon {
+    font-size: 50px;
+}
+
+.letter p {
+    color: #e5dce9;
+}
+
+.signature {
+    margin-top: 30px;
+
+    color: white !important;
+
+    font-weight: bold;
+}
+
+.hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+
+    bottom: -30px;
+
+    font-size: 18px;
+
+    animation: rise linear forwards;
+
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+@keyframes rise {
+
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+</style>
+<script>
+const screens = [
+    "start",
+    "question1",
+    "question2",
+    "question3",
+    "question4",
+    "letter"
+];
+
+function showScreen(id) {
+
+    screens.forEach(screen => {
+        document.getElementById(screen).classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+}
+
+
+function startPage() {
+
+    showScreen("question1");
+
+}
+
+
+function answer(type) {
+
+    if (type === "ghost") {
+
+        alert("Natürlich. 👻🐭");
+
+    } else if (type === "chaos") {
+
+        alert("Das wäre wahrscheinlich die ehrlichste Antwort 😂");
+
+    } else {
+
+        alert("Davon gab es definitiv genug. 🌙");
+
+    }
+
+    showScreen("question2");
+}
+
+
+function nextQuestion() {
+
+    const current =
+        screens.findIndex(screen =>
+            document.getElementById(screen).classList.contains("active")
+        );
+
+    if (current < screens.length - 2) {
+
+        showScreen(screens[current + 1]);
+
+    }
+
+}
+
+
+function showLetter() {
+
+    showScreen("letter");
+
+}
+
+
+function restart() {
+
+    showScreen("start");
+
+}
+
+
+// ❤️ Schwebende Herzen
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const symbols = ["❤️", "💕", "💗", "♡", "✨"];
+
+    heart.innerText =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+
+setInterval(createHeart, 700);
+</script>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top, #321b46 0%, #140d1c 45%, #08070b 100%);
+
+    color: white;
+
+    overflow: hidden;
+}
+
+main {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+.screen {
+    display: none;
+
+    width: 100%;
+    max-width: 430px;
+
+    text-align: center;
+
+    animation: fadeIn 0.7s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+.moon {
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.small {
+    color: #c9a8d9;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 42px;
+    margin: 10px 0 20px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.intro {
+    color: #d8cbdc;
+    line-height: 1.7;
+}
+
+.number {
+    color: #c67cff;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+button {
+    width: 100%;
+
+    border: none;
+    border-radius: 18px;
+
+    padding: 16px 20px;
+
+    margin-top: 14px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 16px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.03);
+
+    background: rgba(198,124,255,0.25);
+}
+
+.answers {
+    margin-top: 25px;
+}
+
+.letter {
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 25px;
+
+    padding: 28px 22px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(10px);
+
+    line-height: 1.7;
+}
+
+.letter-icon {
+    font-size: 50px;
+}
+
+.letter p {
+    color: #e5dce9;
+}
+
+.signature {
+    margin-top: 30px;
+
+    color: white !important;
+
+    font-weight: bold;
+}
+
+.hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+
+    bottom: -30px;
+
+    font-size: 18px;
+
+    animation: rise linear forwards;
+
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+@keyframes rise {
+
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+</style>
+<script>
+const screens = [
+    "start",
+    "question1",
+    "question2",
+    "question3",
+    "question4",
+    "letter"
+];
+
+function showScreen(id) {
+
+    screens.forEach(screen => {
+        document.getElementById(screen).classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+}
+
+
+function startPage() {
+
+    showScreen("question1");
+
+}
+
+
+function answer(type) {
+
+    if (type === "ghost") {
+
+        alert("Natürlich. 👻🐭");
+
+    } else if (type === "chaos") {
+
+        alert("Das wäre wahrscheinlich die ehrlichste Antwort 😂");
+
+    } else {
+
+        alert("Davon gab es definitiv genug. 🌙");
+
+    }
+
+    showScreen("question2");
+}
+
+
+function nextQuestion() {
+
+    const current =
+        screens.findIndex(screen =>
+            document.getElementById(screen).classList.contains("active")
+        );
+
+    if (current < screens.length - 2) {
+
+        showScreen(screens[current + 1]);
+
+    }
+
+}
+
+
+function showLetter() {
+
+    showScreen("letter");
+
+}
+
+
+function restart() {
+
+    showScreen("start");
+
+}
+
+
+// ❤️ Schwebende Herzen
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const symbols = ["❤️", "💕", "💗", "♡", "✨"];
+
+    heart.innerText =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+
+setInterval(createHeart, 700);
+</script>
